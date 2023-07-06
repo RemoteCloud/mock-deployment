@@ -1,1 +1,27 @@
-one line
+networks:
+    test_network:
+        name: test_network
+              
+services: 
+
+    mqtt-client:
+        image: ghcr.io/remotecloud/mqtt-web-client/mqtt-web-client:latest
+        container_name: mqtt-client
+        restart: always
+        networks:
+            test_network:
+        environment:
+          - MQTT=mqtt://mqtt-server:${MQTT_Server_Port}
+        depends_on:
+            - mqtt-server
+        labels:
+            - "maranics"    
+     
+    mqtt-server:
+        image: eclipse-mosquitto
+        container_name: mqtt-server
+        restart: always
+        networks:
+            test_network:
+        volumes: 
+          - ./config/mqtt_server/mqtt_config:/mosquitto/config/mosquitto.conf
