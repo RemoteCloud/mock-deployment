@@ -1,2 +1,2 @@
-allow_anonymous true
+allow_anonymous ${MQTT_Allow_Anonymous:-true}
 port ${MQTT_Server_Port}
