@@ -24,4 +24,4 @@ services:
         networks:
             test_network:
         volumes: 
-          - ./config/mqtt_server/mqtt_config:/mosquitto/config/mosquitto.conf
+          - ${ROOT_LOCATION}/config/mqtt_server/mqtt_config:/mosquitto/config/mosquitto.conf
