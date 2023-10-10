@@ -6,7 +6,7 @@ services:
 
     mqtt-client:
         image: ghcr.io/remotecloud/mqtt-web-client/mqtt-web-client:latest
-        container_name: mqtt-client
+        container_name: mqtt-client-test
         restart: always
         networks:
             test_network:
@@ -19,7 +19,7 @@ services:
      
     mqtt-server:
         image: eclipse-mosquitto
-        container_name: mqtt-server
+        container_name: mqtt-server-test
         restart: always
         networks:
             test_network:
